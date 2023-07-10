@@ -26,6 +26,10 @@ const postSchema = new Schema({
     user:{
         type:String,
         required:true
+    },
+    image:{
+        type:String,
+        required:true
     }
 
 })
