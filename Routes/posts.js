@@ -4,7 +4,7 @@ let Post = require("../Model/Post");
 router.route("/").post((req, res) => {
   const title = req.body.title;
   const community = req.body.community;
-  const time = req.body.time;
+  const time = Number(req.body.time);
   const comments = Number(req.body.comments);
   const likes = Number(req.body.likes);
   const user = req.body.user;
@@ -55,15 +55,6 @@ router.get("/:id", (req, res) => {
     });
 });
 
-// New route to get posts from the "technology" community
-router.get("/community/technology", (req, res) => {
-  Post.find({ community: "technologies" })
-    .then((posts) => {
-      res.json(posts);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+
 
 module.exports = router;
